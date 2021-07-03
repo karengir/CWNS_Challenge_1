@@ -10,9 +10,9 @@ const fetch_User_data = () => {
         });
 };
 
-fetch_User_data(); 
+fetch_User_data();
 
-    const userDataChange = (data) => {
+const userDataChange = (data) => {
     userData = data
     userData.forEach(user => {
         let user_row = ""
@@ -28,20 +28,27 @@ fetch_User_data();
 const get_users_posts = (user_id) => {
     console.log(user_id)
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user_id}`)
-    .then((response) => response.json())
-    .then((json) => {
-        // console.log(json)
-        userPostChange(json)
-    });
+        .then((response) => response.json())
+        .then((json) => {
+            // console.log(json)
+            userPostChange(json)
+        });
 
-}  
+}
 
 const userPostChange = (posts) => {
-    console.log(posts);
+    console.log(posts.length);
+    userposts.innerHTML = ""
     posts.forEach(post => {
-        let user_post = ""
-        user_post += `<h4>${post.title}</h4>`
-        user_post += `<li>${post.body}</li>`
+        let user_post = `
+        <div class="card column" id="post_card">
+        <div class="card-header">
+            <h3>${post.title}</h3>
+        </div>
+        <div class="container">
+            <p>${post.body}</p>
+        </div>
+    </div>`
         userposts.innerHTML += user_post
     })
 }
