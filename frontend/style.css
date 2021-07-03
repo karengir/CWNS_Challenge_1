@@ -79,9 +79,4 @@ button{
   button:hover{
   background-color:#4a4d4e;
   }
-  /* @media all and (max-width:30em){
-   button{
-  display:block;
-  margin:0.2em auto;
-   }
-} */
+  

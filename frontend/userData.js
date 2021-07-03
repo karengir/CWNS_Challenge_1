@@ -26,18 +26,15 @@ const userDataChange = (data) => {
 }
 
 const get_users_posts = (user_id) => {
-    console.log(user_id)
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user_id}`)
         .then((response) => response.json())
         .then((json) => {
-            // console.log(json)
             userPostChange(json)
         });
 
 }
 
 const userPostChange = (posts) => {
-    console.log(posts.length);
     userposts.innerHTML = ""
     posts.forEach(post => {
         let user_post = `
